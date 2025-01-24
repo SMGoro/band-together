@@ -1,0 +1,29 @@
+{
+    "types": [
+        {
+            "id": "vocal",
+            "name": "主唱",
+            "tags": ["vocal"]
+        },
+        {
+            "id": "guitar",
+            "name": "吉他手",
+            "tags": ["guitar"]
+        },
+        {
+            "id": "drums",
+            "name": "鼓手",
+            "tags": ["drums"]
+        },
+        {
+            "id": "bass",
+            "name": "贝斯手",
+            "tags": ["bass"]
+        },
+        {
+            "id": "keyboard",
+            "name": "键盘手",
+            "tags": ["keyboard"]
+        }
+    ]
+}

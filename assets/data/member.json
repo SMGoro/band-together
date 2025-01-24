@@ -1,0 +1,159 @@
+{
+    "gridCount": 5,
+    "contents": [
+        {
+            "id": "001",
+            "title": "后藤一里",
+            "description": "吉他英雄",
+            "image": "assets/img/avatar/001.png",
+            "tags": ["level5", "guitar"]
+        },
+        {
+            "id": "002",
+            "title": "秋山澪",
+            "description": "贝斯手",
+            "image": "assets/img/avatar/002.png",
+            "tags": ["level5", "bass"]
+        },
+        {
+            "id": "003",
+            "title": "河原木桃香",
+            "description": "吉他手",
+            "image": "assets/img/avatar/003.png",
+            "tags": ["level5", "guitar"]
+        },
+        {
+            "id": "004",
+            "title": "丰川祥子",
+            "description": "键盘手",
+            "image": "assets/img/avatar/004.png",
+            "tags": ["level5", "keyboard"]
+        },
+        {
+            "id": "005",
+            "title": "山田 凉",
+            "description": "贝斯手",
+            "image": "assets/img/avatar/005.png",
+            "tags": ["level4", "bass"]
+        },
+        {
+            "id": "006",
+            "title": "平泽唯",
+            "description": "吉他&主唱",
+            "image": "assets/img/avatar/006.png",
+            "tags": ["level4", "guitar", "vocal"]
+        },
+        {
+            "id": "007",
+            "title": "要乐奈",
+            "description": "吉他手",
+            "image": "assets/img/avatar/007.png",
+            "tags": ["level4", "guitar"]
+        },
+        {
+            "id": "008",
+            "title": "高松灯",
+            "description": "主唱",
+            "image": "assets/img/avatar/008.png",
+            "tags": ["level4", "vocal"]
+        },
+        {
+            "id": "009",
+            "title": "井芹仁菜",
+            "description": "主唱",
+            "image": "assets/img/avatar/009.png",
+            "tags": ["level4", "vocal"]
+        },
+        {
+            "id": "010",
+            "title": "琴吹釉",
+            "description": "键盘手",
+            "image": "assets/img/avatar/010.png",
+            "tags": ["level3", "keyboard"]
+        },
+        {
+            "id": "011",
+            "title": "海老冢智",
+            "description": "键盘手",
+            "image": "assets/img/avatar/011.png",
+            "tags": ["level3", "keyboard"]
+        },
+        {
+            "id": "012",
+            "title": "椎名立希",
+            "description": "鼓手",
+            "image": "assets/img/avatar/012.png",
+            "tags": ["level3", "drums"]
+        },
+        {
+            "id": "013",
+            "title": "若叶睦",
+            "description": "吉他手",
+            "image": "assets/img/avatar/013.png",
+            "tags": ["level3", "guitar"]
+        },
+        {
+            "id": "014",
+            "title": "广井菊理",
+            "description": "贝斯手",
+            "image": "assets/img/avatar/014.png",
+            "tags": ["level3", "bass"]
+        },
+        {
+            "id": "015",
+            "title": "长崎爽世",
+            "description": "贝斯手",
+            "image": "assets/img/avatar/015.png",
+            "tags": ["level2", "bass"]
+        },
+        {
+            "id": "016",
+            "title": "伊之地虹夏",
+            "description": "鼓手",
+            "image": "assets/img/avatar/016.png",
+            "tags": ["level2", "drums"]
+        },
+        {
+            "id": "017",
+            "title": "喜多郁代",
+            "description": "吉他&主唱",
+            "image": "assets/img/avatar/017.png",
+            "tags": ["level2", "guitar", "vocal"]
+        },
+        {
+            "id": "018",
+            "title": "中野梓",
+            "description": "吉他手",
+            "image": "assets/img/avatar/018.png",
+            "tags": ["level2", "guitar"]
+        },
+        {
+            "id": "019",
+            "title": "RUPA",
+            "description": "贝斯手",
+            "image": "assets/img/avatar/019.png",
+            "tags": ["level2", "bass"]
+        },
+        {
+            "id": "020",
+            "title": "千早爱音",
+            "description": "吉他手",
+            "image": "assets/img/avatar/020.png",
+            "tags": ["level1", "guitar"]
+        },
+        {
+            "id": "021",
+            "title": "田共中律",
+            "description": "鼓手",
+            "image": "assets/img/avatar/021.png",
+            "tags": ["level1", "drums"]
+        },
+        {
+            "id": "022",
+            "title": "安和昴",
+            "description": "鼓手",
+            "image": "assets/img/avatar/022.png",
+            "tags": ["level1", "drums"]
+        }
+    ]
+}

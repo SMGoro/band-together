@@ -1,0 +1,19 @@
+{
+    "types": [
+        {
+            "id": "level",
+            "name": "等级",
+            "tags": ["level5", "level4", "level3", "level2", "level1"]
+        },
+        {
+            "id": "type2",
+            "name": "乐器",
+            "tags": ["keyboard", "guitar", "drums", "vocal", "bass"]
+        },
+        {
+            "id": "type3",
+            "name": "乐队",
+            "tags": ["tag5", "tag6"]
+        }
+    ]
+}

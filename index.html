@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组乐队</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/core/html2canvas.min.js"></script>
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/qrcode.js"></script>
+    <script src="assets/js/core/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container" id="band-chosen">
+        <div class="qrcode-show" id="qrcode"></div>
+        <h1>15元组乐队</h1>
+        <!-- <img src="assets/img/origin.png" alt=""> -->
+        <div class="content-container" id="content-container">
+            <!-- 内容将动态生成 -->
+        </div>
+        <h1>你的组合是：</h1>
+        <div class="grid-container" id="grid-container">
+            <!-- 格子将动态生成 -->
+        </div>
+    </div>
+    <div class="container">
+        <button id="restart-btn">重新开始</button>
+        <button id="save-btn">保存结果</button>
+    </div>
+
+</body>
+</html>
