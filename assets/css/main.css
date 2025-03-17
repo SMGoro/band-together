@@ -1,92 +1,264 @@
+/* 截图尺寸变量 */
+:root {
+    --capture-width: 800px;
+    --capture-height: 1200px;
+    --capture-content-width: 560px;
+    --capture-grid-item-size: 120px;
+    --capture-grid-gap: 15px;
+}
+
 body {
     font-family: Arial, sans-serif;
-    flex-direction: column;
-    /* height: 100vh; */
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .container {
-    display: grid;
-    height: 100%;
-    margin: 2px;
-    padding: 1px;
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 或者使用 object-fit: contain; 根据需求选择 */
-    }
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .container h1 {
-    margin: 20px;
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    margin: 15px 0;
+    font-size: clamp(24px, 4vw, 30px);
+    color: #333;
+    width: 100%;
 }
 
 .content-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 5px 0;
+    -webkit-overflow-scrolling: touch;
     display: flex;
     flex-direction: column;
-    margin: 2px;
-    padding: 1px;
-    width: 90%;
+    align-items: flex-start;
 }
 
 .type-container {
+    margin-bottom: 20px;
+    width: 100%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
 }
 
 .type-container h2 {
-    margin: 20px;
-    font-size: 30px;
+    margin: 0;
+    font-size: clamp(18px, 3vw, 22px);
+    color: #444;
+    min-width: 100px;
+    flex-shrink: 0;
 }
 
 .draggable-container {
     display: flex;
-    /* width: 95vw;
-    flex-direction: row; 
-    overflow-x: auto; 
-    white-space: nowrap;  */
+    overflow-x: auto;
+    padding: 8px;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin: 0;
+}
+
+.draggable-container::-webkit-scrollbar {
+    height: 6px;
 }
 
 .grid-container {
-    display: flex;
-    /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
-    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 12px;
+    padding: 15px;
+    margin: 0;
     width: 100%;
-    max-width: 800px; 
-    padding: 20px 10px;
-    /* width: 100vw;
-    flex-direction: row; 
-    overflow-x: auto;  */
+    max-width: 800px;
+    justify-content: center;
+    align-items: start;
+    min-height: 145px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container::-webkit-scrollbar {
+    height: 6px;
 }
 
 .draggable-item {
     position: relative;
-    width: 120px; /* 根据需要调整 */
-    height: 120px; /* 根据需要调整 */
+    width: 95px;
+    height: 95px;
     background-size: cover;
     background-position: center;
-    color: white; /* 文字颜色 */
-    margin: 5px;
-    flex-shrink: 0;
+    background-repeat: no-repeat;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+}
+
+.draggable-container .draggable-item.selected {
+    box-shadow: 0 0 0 2px #4CAF50, 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.draggable-container .draggable-item.selected::before {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.draggable-container .draggable-item.selected::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.draggable-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+#band-chosen {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    position: relative;
+    margin: 0 auto;
 }
 
 .qrcode-show {
-    width: 128px;
-    height: 128px;
-    position: relative;
-    top: 0; 
-    right: 0;
-    /* z-index: 1; */
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    box-sizing: content-box;
+    z-index: 1000;
 }
 
-/* .draggable-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-} */
+/* 用于截图时的特殊样式 */
+.capture-mode {
+    width: var(--capture-width) !important;
+    height: var(--capture-height) !important;
+    background: white !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.capture-mode .content-container {
+    width: 100% !important;
+    min-width: var(--capture-content-width) !important;
+    max-width: var(--capture-content-width) !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    transform: none !important;
+}
+
+.capture-mode .type-container {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    transform: none !important;
+}
+
+.capture-mode .draggable-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+.capture-mode .grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, var(--capture-grid-item-size)) !important;
+    gap: var(--capture-grid-gap) !important;
+    justify-content: center !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 10px 0 !important;
+    margin: 0 auto !important;
+    width: var(--capture-content-width) !important;
+}
+
+.capture-mode .grid-item {
+    width: var(--capture-grid-item-size) !important;
+    height: var(--capture-grid-item-size) !important;
+    min-width: var(--capture-grid-item-size) !important;
+    min-height: var(--capture-grid-item-size) !important;
+    margin: 0 !important;
+}
+
+.capture-mode .draggable-item {
+    width: var(--capture-grid-item-size) !important;
+    height: var(--capture-grid-item-size) !important;
+    min-width: var(--capture-grid-item-size) !important;
+    min-height: var(--capture-grid-item-size) !important;
+    margin: 0 !important;
+}
+
+.capture-mode h1 {
+    font-size: 24px !important;
+    margin: 10px 0 20px !important;
+    text-align: center !important;
+    color: #333 !important;
+}
+
+.capture-mode h2 {
+    font-size: 18px !important;
+}
+
+.capture-mode .text-content {
+    font-size: 12px !important;
+    padding: 4px !important;
+}
+
+.capture-mode .scroll-hint {
+    display: none !important;
+}
 
 .draggable-item::before {
     content: '';
@@ -95,31 +267,216 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 图片颜色变深 */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
     z-index: 1;
 }
 
 .draggable-item.highlight, .grid-item.highlight {
-    background-color: yellow; /* 高亮颜色 */
-    transition: background-color 0.5s; /* 过渡效果 */
+    background-color: #ffd700;
+    transition: background-color 0.3s;
 }
 
 .grid-item {
-    height: 135px;
-    width: 135px;
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
+    min-height: 125px;
+    min-width: 125px;
+    height: 125px;
+    width: 125px;
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    transition: border-color 0.3s;
+    margin: 0;
+}
+
+.grid-item:hover {
+    border-color: #666;
 }
 
 .text-content {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 2;
-    padding: 10px; /* 根据需要调整 */
+    padding: 6px;
+    text-align: center;
+    font-size: 13px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+}
+
+#restart-btn, #save-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-weight: 600;
+}
+
+#restart-btn {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+#save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#restart-btn:hover, #save-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.github-link {
+    position: relative;
+    padding: 8px 16px;
+    background-color: #24292e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+    margin-top: 15px;
+}
+
+.github-link:hover {
+    transform: translateY(-2px);
+}
+
+@media (min-width: 1201px) {
+    .container {
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+        padding: 10px;
+        margin: 0;
+    }
+    
+    .type-container {
+        gap: 8px;
+    }
+
+    .type-container h2 {
+        min-width: 70px;
+        font-size: 15px;
+    }
+    
+    .draggable-item {
+        width: 85px;
+        height: 85px;
+        min-width: 85px;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .grid-item {
+        width: 95px;
+        height: 95px;
+        min-width: 95px;
+        min-height: 95px;
+    }
+    
+    .text-content {
+        font-size: 11px;
+        padding: 4px;
+    }
+    
+    .github-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    #restart-btn, #save-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .capture-mode {
+        width: var(--capture-width) !important;
+        height: var(--capture-height) !important;
+        min-width: var(--capture-width) !important;
+        padding: 20px !important;
+    }
+
+    .capture-mode .content-container {
+        min-width: var(--capture-content-width) !important;
+        max-width: var(--capture-content-width) !important;
+        padding: 10px 0 !important;
+    }
+
+    .capture-mode .grid-container {
+        grid-template-columns: repeat(4, var(--capture-grid-item-size)) !important;
+        gap: var(--capture-grid-gap) !important;
+        width: var(--capture-content-width) !important;
+        min-width: var(--capture-content-width) !important;
+        max-width: var(--capture-content-width) !important;
+    }
+
+    .capture-mode .grid-item {
+        width: var(--capture-grid-item-size) !important;
+        height: var(--capture-grid-item-size) !important;
+        min-width: var(--capture-grid-item-size) !important;
+        min-height: var(--capture-grid-item-size) !important;
+    }
+
+    .capture-mode .draggable-item {
+        width: var(--capture-grid-item-size) !important;
+        height: var(--capture-grid-item-size) !important;
+        min-width: var(--capture-grid-item-size) !important;
+        min-height: var(--capture-grid-item-size) !important;
+    }
+
+    #band-chosen {
+        width: 100%;
+    }
+
+    /* 添加滚动提示 */
+    .scroll-hint {
+        position: absolute;
+        right: 20px;
+        color: #666;
+        font-size: 14px;
+        opacity: 0.8;
+        animation: fadeInOut 2s infinite;
+    }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
 }
