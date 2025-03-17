@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typeData.types.forEach(type => {
             const typeContainer = document.createElement('div');
             typeContainer.className = 'type-container';
-            typeContainer.innerHTML = `<h2>${type.name}</h2>`;
+            typeContainer.innerHTML = `<h2 class="type-title">${type.name}</h2>`;
             contentContainer.appendChild(typeContainer);
 
             const memberContainer = document.createElement('div');

@@ -480,3 +480,11 @@ body {
     50% { opacity: 0.8; }
     100% { opacity: 0.4; }
 }
+
+.type-title {
+    text-align: right; /* 使标题右对齐 */
+    margin: 5px 0; /* 减小外边距 */
+    padding: 5px; /* 减小内边距 */
+    font-size: 16px; /* 调整字体大小 */
+    line-height: 1.2; /* 减小行高 */
+}
